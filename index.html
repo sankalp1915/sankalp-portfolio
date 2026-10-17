@@ -8,7 +8,7 @@
 <meta property="og:title" content="Sankalp — Robotics Mechanical Design Engineer">
 <meta property="og:description" content="End-effectors, mechanisms and UAVs — from concept CAD through simulation, DFMA and prototype.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/quadcopter-render.jpg">
+<meta property="og:image" content="assets/sankalp-origin-robot.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e8590c'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +66,11 @@ h1 em{font-style:normal;color:var(--accent)}
 .stat b{display:block;font-size:28px;letter-spacing:-.5px}
 .stat span{font-size:13px;color:var(--muted)}
 @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-photo{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.12);background:var(--surface)}
+.hero-photo img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:35% 40%;cursor:zoom-in}
+.hero-photo figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:12px;color:#fff;background:rgba(0,0,0,.55);padding:5px 9px;border-radius:6px}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-photo img{aspect-ratio:4/3}}
 .blueprint{position:absolute;right:-40px;top:60px;width:420px;opacity:.55;pointer-events:none}
 @media (max-width:980px){.blueprint{display:none}}
 
@@ -151,23 +156,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </div></nav>
 
 <header class="hero" id="top">
-  <svg class="blueprint" viewBox="0 0 420 320" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--muted)">
-    <!-- stylised robot arm / end-effector line drawing -->
-    <rect x="40" y="250" width="120" height="30" rx="4"/>
-    <circle cx="100" cy="240" r="16"/>
-    <path d="M100 224 L170 120" stroke-width="14" stroke-linecap="round" opacity=".18"/>
-    <path d="M100 224 L170 120"/>
-    <circle cx="170" cy="120" r="12"/>
-    <path d="M170 120 L290 90" stroke-width="12" stroke-linecap="round" opacity=".18"/>
-    <path d="M170 120 L290 90"/>
-    <circle cx="290" cy="90" r="10" style="stroke:var(--accent)"/>
-    <rect x="300" y="72" width="44" height="36" rx="4" style="stroke:var(--accent)"/>
-    <path d="M344 80 h22 M344 100 h22" style="stroke:var(--accent)"/>
-    <path d="M20 300 H400" stroke-dasharray="4 4"/>
-    <path d="M170 60 v40 M160 60 h20" stroke-dasharray="3 3"/>
-    <text x="186" y="66" font-family="monospace" font-size="10" fill="currentColor" stroke="none">TOOL SWAP</text>
-  </svg>
   <div class="wrap">
+   <div class="hero-grid">
+    <div class="hero-copy">
     <span class="tag"><span class="dot"></span>Robotics Mechanical Design Engineer · Origin, Bengaluru</span>
     <h1>I design the <em>mechanisms</em><br>robots work with.</h1>
     <p class="lede">End-effectors, actuation and structures for autonomous robots and cobots — taken from concept CAD through FEA/CFD, DFMA and sheet-metal design to working prototypes.</p>
@@ -177,6 +168,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
       <a class="btn" href="https://www.linkedin.com/in/sankalpsankalp" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn" href="https://github.com/sankalp1915" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
+    </div>
+    <figure class="hero-photo"><img src="assets/sankalp-origin-robot.jpg" alt="Sankalp standing beside Origin's construction-finishing robot with its sanding end-effector" data-zoom>
+      <figcaption>With Origin's finishing robot</figcaption></figure>
+   </div>
     <div class="stats">
       <div class="stat"><b>2</b><span>Published patent applications</span></div>
       <div class="stat"><b>AIR 1</b><span>Autodesk Design Challenge 2024</span></div>
