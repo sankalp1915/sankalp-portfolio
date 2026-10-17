@@ -8,6 +8,7 @@
 <meta property="og:title" content="Sankalp — Robotics Mechanical Design Engineer">
 <meta property="og:description" content="End-effectors, mechanisms and UAVs — from concept CAD through simulation, DFMA and prototype.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="assets/quadcopter-render.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e8590c'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +101,18 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;line-height:1.1;margin:8px
 .kpi b{color:var(--accent);font-weight:600}
 .tools{font-size:13px;color:var(--muted);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
 .card a.more{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:12px}
+
+
+.media{position:relative;margin:-24px -24px 18px;border-bottom:1px solid var(--line);overflow:hidden;border-radius:16px 16px 0 0;background:var(--line)}
+.media img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;cursor:zoom-in;transition:transform .4s}
+.media:hover img{transform:scale(1.03)}
+.media figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:11.5px;color:#fff;background:rgba(0,0,0,.55);padding:4px 8px;border-radius:6px;pointer-events:none}
+.play{position:absolute;right:10px;top:10px;font:600 13px var(--sans);color:#fff;background:var(--accent);border:0;border-radius:8px;padding:7px 12px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.play:hover{filter:brightness(1.08)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb img,.lb video{max-width:min(1100px,100%);max-height:88vh;border-radius:10px;background:#000}
+.lb button{position:absolute;top:14px;right:16px;background:none;border:0;color:#fff;font-size:30px;cursor:pointer;line-height:1}
 
 /* recognition */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -221,11 +234,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   <div class="grid">
 
     <article class="card">
-      <div class="viz"><svg viewBox="0 0 200 110">
-        <circle cx="40" cy="25" r="18"/><circle cx="160" cy="25" r="18"/><circle cx="40" cy="85" r="18"/><circle cx="160" cy="85" r="18"/>
-        <path d="M58 25 H142 M58 85 H142 M70 25 V85 M130 25 V85"/>
-        <rect class="a" x="82" y="40" width="36" height="30" rx="4"/>
-      </svg></div>
+      <figure class="media"><img src="assets/quadcopter-render.jpg" alt="Rendered CAD of the hybrid-H quadcopter with carbon-fibre arms and aerodynamic stack cover" loading="lazy" data-zoom>
+        <button class="play" data-video="assets/quadcopter-flight-test.mp4" aria-label="Play flight test video">▶ Flight test</button>
+        <figcaption>CAD render</figcaption></figure>
       <h3>Autonomous Multirotor UAV</h3>
       <div class="meta">May — Jul 2024 · 2 kg hybrid-H quadcopter</div>
       <p>Designed and validated a 602 mm wheelbase quad with Pixhawk + Jetson Nano autonomy, then iterated the aerodynamic stack cover in CFD.</p>
@@ -238,12 +249,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     </article>
 
     <article class="card">
-      <div class="viz"><svg viewBox="0 0 200 110">
-        <path d="M20 55 H180"/><path d="M100 20 L112 55 L100 90 L88 55 Z"/>
-        <path class="a" d="M60 55 L40 25 M140 55 L160 25"/>
-        <circle cx="60" cy="40" r="10"/><circle cx="140" cy="40" r="10"/><circle cx="60" cy="72" r="10"/><circle cx="140" cy="72" r="10"/>
-        <path d="M20 55 L10 45 M20 55 L10 65"/>
-      </svg></div>
+      <figure class="media"><img src="assets/vtol-sih2024.jpg" alt="Quad-plane VTOL prototype displayed at Smart India Hackathon 2024" loading="lazy" data-zoom style="object-position:center 88%">
+        <figcaption>Prototype · SIH 2024</figcaption></figure>
       <h3>eVTOL Quad-plane for Medical Logistics</h3>
       <div class="meta">Mar — Dec 2024 · Patent published</div>
       <p>Sized a hybrid VTOL for medical logistics and disaster surveillance, with a morphing wing that reconfigures in transition to cut cruise drag. Built a full-vehicle URDF from CAD for controller-in-the-loop simulation.</p>
@@ -255,11 +262,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     </article>
 
     <article class="card">
-      <div class="viz"><svg viewBox="0 0 200 110">
-        <rect x="30" y="10" width="140" height="12" rx="2"/><path d="M40 22 V95 M160 22 V95 M30 95 H170"/>
-        <rect class="a" x="88" y="22" width="24" height="44" rx="3"/><path class="a" d="M100 66 V78 M95 78 h10 l-5 8 z"/>
-        <path d="M70 88 h60" stroke-dasharray="3 3"/>
-      </svg></div>
+      <figure class="media"><img src="assets/ceramic-printer.jpg" alt="Syringe-pump ceramic extruder test rig with lead-screw drive, stepper driver and Arduino control boards" loading="lazy" data-zoom>
+        <figcaption>Extruder test rig</figcaption></figure>
       <h3>Ceramic 3D Printer (B₄C)</h3>
       <div class="meta">Feb — May 2024 · Patent + ASME paper</div>
       <p>Retrofitted an Ender 3 with a syringe-pump extruder and closed-loop Arduino control with ultrasonic feedstock sensing; characterised 5 slurry compositions and validated nozzle flow in Fluent.</p>
@@ -321,6 +325,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   </div>
 </div></section>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Media viewer"><button aria-label="Close">×</button><div id="lbBody"></div></div>
 <footer><div class="wrap"><span>© <span id="y"></span> Sankalp</span><span>Bengaluru, India</span></div></footer>
 
 <script>
@@ -333,6 +338,16 @@ document.getElementById('y').textContent=new Date().getFullYear();
     var next=cur==='dark'?'light':'dark';root.setAttribute('data-theme',next);
     try{localStorage.setItem('theme',next);}catch(e){}
   });
+})();
+
+(function(){
+  var lb=document.getElementById('lb'),body=document.getElementById('lbBody');
+  function open(el){body.innerHTML='';body.appendChild(el);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');body.innerHTML='';document.body.style.overflow='';}
+  document.querySelectorAll('[data-zoom]').forEach(function(img){img.addEventListener('click',function(){var i=new Image();i.src=img.src;i.alt=img.alt;open(i);});});
+  document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){var v=document.createElement('video');v.src=b.getAttribute('data-video');v.poster='assets/flight-test-poster.jpg';v.controls=true;v.autoplay=true;v.muted=true;v.playsInline=true;open(v);});});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.tagName==='BUTTON')close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 </body>
