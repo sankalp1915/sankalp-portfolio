@@ -230,7 +230,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
     <article class="card">
       <figure class="media"><img src="assets/quadcopter-render.jpg" alt="Rendered CAD of the hybrid-H quadcopter with carbon-fibre arms and aerodynamic stack cover" loading="lazy" data-zoom>
-        <button class="play" data-video="assets/quadcopter-flight-test.mp4" aria-label="Play flight test video">▶ Flight test</button>
+        <button class="play" data-video="assets/quadcopter-flight-test.mp4" data-poster="assets/flight-test-poster.jpg" aria-label="Play flight test video">▶ Flight test</button>
         <figcaption>CAD render</figcaption></figure>
       <h3>Autonomous Multirotor UAV</h3>
       <div class="meta">May — Jul 2024 · 2 kg hybrid-H quadcopter</div>
@@ -245,10 +245,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
     <article class="card">
       <figure class="media"><img src="assets/vtol-sih2024.jpg" alt="Quad-plane VTOL prototype displayed at Smart India Hackathon 2024" loading="lazy" data-zoom style="object-position:center 88%">
+        <button class="play" data-video="assets/vtol-flight-test.mp4" data-poster="assets/vtol-flight-poster.jpg" aria-label="Play VTOL flight test video">▶ Flight test</button>
         <figcaption>Prototype · SIH 2024</figcaption></figure>
       <h3>eVTOL Quad-plane for Medical Logistics</h3>
-      <div class="meta">Mar — Dec 2024 · Prototype built · Patent published</div>
-      <p>Sized a hybrid VTOL for medical logistics and disaster surveillance, with a morphing wing that reconfigures in transition to cut cruise drag. Built a full-vehicle URDF from CAD for controller-in-the-loop simulation, and a working prototype showcased at Smart India Hackathon 2024.</p>
+      <div class="meta">Mar — Dec 2024 · Flight-tested prototype · Patent published</div>
+      <p>Sized a hybrid VTOL for medical logistics and disaster surveillance, with a morphing wing that reconfigures in transition to cut cruise drag. Built a full-vehicle URDF from CAD for controller-in-the-loop simulation, and a flight-tested prototype showcased at Smart India Hackathon 2024.</p>
       <div class="kpis">
         <span class="kpi">Payload <b>40 kg</b></span><span class="kpi">Endurance <b>50+ min</b></span><span class="kpi"><b>ROS 2 + Gazebo</b></span><span class="kpi">Prototype <b>SIH 2024</b></span>
       </div>
@@ -340,7 +341,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
   function open(el){body.innerHTML='';body.appendChild(el);lb.classList.add('open');document.body.style.overflow='hidden';}
   function close(){lb.classList.remove('open');body.innerHTML='';document.body.style.overflow='';}
   document.querySelectorAll('[data-zoom]').forEach(function(img){img.addEventListener('click',function(){var i=new Image();i.src=img.src;i.alt=img.alt;open(i);});});
-  document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){var v=document.createElement('video');v.src=b.getAttribute('data-video');v.poster='assets/flight-test-poster.jpg';v.controls=true;v.autoplay=true;v.muted=true;v.playsInline=true;open(v);});});
+  document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){var v=document.createElement('video');v.src=b.getAttribute('data-video');v.poster=b.getAttribute('data-poster')||'';v.controls=true;v.autoplay=true;v.muted=true;v.playsInline=true;open(v);});});
   lb.addEventListener('click',function(e){if(e.target===lb||e.target.tagName==='BUTTON')close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
