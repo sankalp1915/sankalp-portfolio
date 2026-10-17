@@ -92,7 +92,8 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;line-height:1.1;margin:8px
 @media (max-width:720px){.job{grid-template-columns:1fr;gap:6px}}
 
 /* projects */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
 .card .viz{height:150px;border-radius:10px;border:1px dashed var(--line);margin-bottom:18px;display:flex;align-items:center;justify-content:center;
   background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px}
@@ -233,13 +234,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         <button class="play" data-video="assets/quadcopter-flight-test.mp4" data-poster="assets/flight-test-poster.jpg" aria-label="Play flight test video">▶ Flight test</button>
         <figcaption>CAD render</figcaption></figure>
       <h3>Autonomous Multirotor UAV</h3>
-      <div class="meta">May — Jul 2024 · 2 kg hybrid-H quadcopter</div>
-      <p>Designed and validated a 602 mm wheelbase quad with Pixhawk + Jetson Nano autonomy, then iterated the aerodynamic stack cover in CFD.</p>
+      <div class="meta">May — Jul 2024 · SAE Aerothon 2024 · Team Captain</div>
+      <p>Captained Team Air Guardians to the Aerothon finals (86.25/100, top rank among Institutes of National Importance) and the <b>Best Autonomous Mission (M4)</b> award. Designed and validated a 2 kg hybrid-H quad; autonomy ran YOLOv4-Tiny on a Raspberry Pi 5 with grid-based path planning for hotspot detection and precise payload drop.</p>
       <div class="kpis">
         <span class="kpi">T/W <b>2.54:1</b></span><span class="kpi">Endurance <b>15 min</b></span>
-        <span class="kpi">Drag <b>−21%</b></span><span class="kpi">Drop FoS <b>2.36</b></span><span class="kpi">f₁ <b>252 Hz</b></span>
+        <span class="kpi">Drag <b>−21%</b></span><span class="kpi">Drop FoS <b>2.36</b></span><span class="kpi">f₁ <b>252 Hz</b></span><span class="kpi">Score <b>86.25/100</b></span>
       </div>
-      <div class="tools">SolidWorks · Ansys Fluent/Structural/Modal · LS-Dyna · ArduPilot · OpenCV</div>
+      <div class="tools">SolidWorks · Ansys Fluent/Structural/Modal · LS-Dyna · ArduPilot · YOLOv4-Tiny · Raspberry Pi 5</div>
       <a class="more" href="https://drive.google.com/file/d/1pHhlk7Q49X-qJmD1n_nKoqJlHsoVafmE/view?usp=sharing" target="_blank" rel="noopener">Read report ↗</a>
     </article>
 
@@ -248,13 +249,27 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         <button class="play" data-video="assets/vtol-flight-test.mp4" data-poster="assets/vtol-flight-poster.jpg" aria-label="Play VTOL flight test video">▶ Flight test</button>
         <figcaption>Prototype · SIH 2024</figcaption></figure>
       <h3>eVTOL Quad-plane for Medical Logistics</h3>
-      <div class="meta">Mar — Dec 2024 · Flight-tested prototype · Patent published</div>
+      <div class="meta">Mar — Dec 2024 · Flight-tested prototype · Patent published · Design registered</div>
       <p>Sized a hybrid VTOL for medical logistics and disaster surveillance, with a morphing wing that reconfigures in transition to cut cruise drag. Built a full-vehicle URDF from CAD for controller-in-the-loop simulation, and a flight-tested prototype showcased at Smart India Hackathon 2024.</p>
       <div class="kpis">
         <span class="kpi">Payload <b>40 kg</b></span><span class="kpi">Endurance <b>50+ min</b></span><span class="kpi"><b>ROS 2 + Gazebo</b></span><span class="kpi">Prototype <b>SIH 2024</b></span>
       </div>
       <div class="tools">Fusion 360 · Autodesk CFD · ROS 2 · Gazebo · URDF</div>
       <a class="more" href="https://drive.google.com/file/d/1YbTYaFu0hA3IRrJqqlMGRoJghjB-BX9E/view?usp=sharing" target="_blank" rel="noopener">Read report ↗</a>
+    </article>
+
+    <article class="card">
+      <figure class="media"><img src="assets/fixed-wing-garuda.jpg" alt="Garuda Gliders fixed-wing cargo UAV with balsa-rib tapered wing and transmitter" loading="lazy" data-zoom>
+        <figcaption>Garuda Gliders · DDC 2024</figcaption></figure>
+      <h3>Fixed-Wing Cargo UAV</h3>
+      <div class="meta">Feb 2024 · SAE ISS Drone Development Challenge · Micro Class</div>
+      <p>Team Garuda Gliders' heavy-lift RC aircraft. Screened 6 airfoils in XFLR5 and Ansys Fluent and picked the high-lift S1223; compared full- vs 30%-tapered planforms in CFD (19 N vs 16.5 N lift). Laser-cut balsa ribs with a Depron fuselage, SunnySky X2814 + APC 13×6.5 propulsion. Placed <b>2nd in Best Aerodynamic Analysis (CFD)</b>.</p>
+      <div class="kpis">
+        <span class="kpi">Span <b>1.25 m</b></span><span class="kpi">AR <b>6.1</b></span><span class="kpi">AUW <b>2.3 kg</b></span>
+        <span class="kpi">C<sub>L</sub>@0° <b>1.18</b></span><span class="kpi">V<sub>stall</sub> <b>11.3 m/s</b></span>
+      </div>
+      <div class="tools">XFLR5 · Ansys Fluent · SolidWorks · Laser cutting</div>
+      <a class="more" href="https://drive.google.com/file/d/1GNExrQPMU1N4FSLbrfVgkYfWSICJcl2L/view?usp=sharing" target="_blank" rel="noopener">Read design report ↗</a>
     </article>
 
     <article class="card">
@@ -279,14 +294,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   <div class="two">
     <div class="list">
       <div class="item"><span class="rank">PATENT · IN 202521020630</span><b>An Extrusion System for 3D Printing and a Method of Operation Thereof</b><span>Published May 2025 · Design App. 450682-001</span></div>
-      <div class="item"><span class="rank">PATENT · IN 202521057108</span><b>An Electric (eVTOL) Aircraft for Medical Logistics and Disaster Surveillance</b><span>Published Jul 2025 · Design App. 462171-001</span></div>
+      <div class="item"><span class="rank">PATENT · IN 202521057108</span><b>An Electric (eVTOL) Aircraft for Medical Logistics and Disaster Surveillance</b><span>Published Jul 2025 · Design 462171-001 registered</span></div>
       <div class="item"><span class="rank">PAPER · ASME IMECE INDIA 2025</span><b><a href="https://asmedigitalcollection.asme.org/imece-india/proceedings-abstract/IMECE-INDIA2025/89138/1228650" target="_blank" rel="noopener" style="text-decoration:none">Evaluating Extrusion Dynamics in Ceramic 3D Printing Using FEA ↗</a></b><span>IMECE-INDIA2025-161187</span></div>
     </div>
     <div class="list">
       <div class="item"><span class="rank">AIR 1</span><b>Autodesk Design Challenge 2024</b><span>IIT Kanpur</span></div>
       <div class="item"><span class="rank">WINNER</span><b>Smart India Hackathon 2024</b><span>Hardware edition</span></div>
-      <div class="item"><span class="rank">BEST AUTONOMOUS UAV</span><b>Aerothon 2024</b><span>SAE India</span></div>
-      <div class="item"><span class="rank">AIR 2 · BEST CFD ANALYSIS</span><b>Drone Development Challenge 2024</b><span>SAE ISS</span></div>
+      <div class="item"><span class="rank">BEST AUTONOMOUS MISSION (M4)</span><b>SAEINDIA Aerothon 2024</b><span>Team Captain · Finals, top rank among INIs</span></div>
+      <div class="item"><span class="rank">AIR 2 · BEST AERODYNAMIC ANALYSIS (CFD)</span><b>Drone Development Challenge 2024</b><span>SAE ISS · Team Garuda Gliders</span></div>
       <div class="item"><span class="rank">CERTIFICATIONS</span><b>CSWA · Top 5% Aircraft Design (NPTEL)</b><span>Dassault Systèmes · IIT Kanpur</span></div>
     </div>
   </div>
