@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sankalp — Robotics Mechanical Design Engineer</title>
+<meta name="description" content="Sankalp — Robotics Mechanical Design Engineer at Origin. End-effectors, mechanisms, UAVs, FEA/CFD, DFMA. 2 published patents, ASME paper, AIR 1 Autodesk Design Challenge.">
+<meta property="og:title" content="Sankalp — Robotics Mechanical Design Engineer">
+<meta property="og:description" content="End-effectors, mechanisms and UAVs — from concept CAD through simulation, DFMA and prototype.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e8590c'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --ink:#15171a; --muted:#5d636b; --line:#e3e1dc;
+  --grid:rgba(21,23,26,.045); --accent:#e8590c; --accent-soft:rgba(232,89,12,.09);
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1113; --surface:#171a1d; --ink:#eceae6; --muted:#9aa0a6; --line:#2a2e33;
+    --grid:rgba(236,234,230,.04); --accent:#ff7a33; --accent-soft:rgba(255,122,51,.12);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1113; --surface:#171a1d; --ink:#eceae6; --muted:#9aa0a6; --line:#2a2e33;
+  --grid:rgba(236,234,230,.04); --accent:#ff7a33; --accent-soft:rgba(255,122,51,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--mono);font-weight:600;text-decoration:none;letter-spacing:.5px}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+@media (max-width:720px){.links a:not(.cta){display:none}}
+
+/* hero */
+.hero{position:relative;padding:96px 0 80px;border-bottom:1px solid var(--line);overflow:hidden;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px}
+.tag{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:#2f9e44;box-shadow:0 0 0 3px rgba(47,158,68,.18)}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-2px;font-weight:800;margin:22px 0 14px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(17px,2.1vw,20px);color:var(--muted);max-width:640px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surface)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:hover{transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:56px}
+.stat{background:var(--surface);padding:20px}
+.stat b{display:block;font-size:28px;letter-spacing:-.5px}
+.stat span{font-size:13px;color:var(--muted)}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+.blueprint{position:absolute;right:-40px;top:60px;width:420px;opacity:.55;pointer-events:none}
+@media (max-width:980px){.blueprint{display:none}}
+
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.label{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-1px;line-height:1.1;margin:8px 0 36px}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:none;padding-top:0}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.job h3{font-size:20px;letter-spacing:-.3px}
+.role{color:var(--muted);font-size:15px;margin-bottom:10px}
+.job ul{padding-left:18px;color:var(--ink)}
+.job li{margin:6px 0}
+.job li::marker{color:var(--accent)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;background:var(--accent-soft);color:var(--accent);padding:3px 8px;border-radius:6px;margin-left:8px;vertical-align:middle}
+@media (max-width:720px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.card .viz{height:150px;border-radius:10px;border:1px dashed var(--line);margin-bottom:18px;display:flex;align-items:center;justify-content:center;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px}
+.card .viz svg{width:78%;height:auto;stroke:var(--ink);fill:none;stroke-width:1.4}
+.card .viz svg .a{stroke:var(--accent)}
+.card h3{font-size:19px;letter-spacing:-.3px;margin-bottom:4px}
+.card .meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:12px}
+.card p{font-size:15px;color:var(--muted)}
+.kpis{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.kpi{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:5px 9px}
+.kpi b{color:var(--accent);font-weight:600}
+.tools{font-size:13px;color:var(--muted);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.card a.more{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:12px}
+
+/* recognition */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 24px}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item b{display:block;font-size:16px}
+.item span{font-size:14px;color:var(--muted)}
+.rank{font-family:var(--mono);color:var(--accent);font-size:13px;font-weight:600}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skill h4{font-family:var(--mono);font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:14px}
+
+/* contact */
+.contact{text-align:center;padding:100px 0}
+.contact h2{margin-bottom:14px}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+.contact .btns{justify-content:center}
+footer{padding:28px 0;font-size:13px;color:var(--muted);font-family:var(--mono)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">sankalp<span>.</span></a>
+  <div class="links">
+    <a href="#work">Experience</a><a href="#projects">Projects</a><a href="#recognition">Patents &amp; Awards</a><a href="#skills">Skills</a>
+    <a class="cta" href="Sankalp_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+    <button class="theme" id="theme" aria-label="Toggle theme">◐</button>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <svg class="blueprint" viewBox="0 0 420 320" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--muted)">
+    <!-- stylised robot arm / end-effector line drawing -->
+    <rect x="40" y="250" width="120" height="30" rx="4"/>
+    <circle cx="100" cy="240" r="16"/>
+    <path d="M100 224 L170 120" stroke-width="14" stroke-linecap="round" opacity=".18"/>
+    <path d="M100 224 L170 120"/>
+    <circle cx="170" cy="120" r="12"/>
+    <path d="M170 120 L290 90" stroke-width="12" stroke-linecap="round" opacity=".18"/>
+    <path d="M170 120 L290 90"/>
+    <circle cx="290" cy="90" r="10" style="stroke:var(--accent)"/>
+    <rect x="300" y="72" width="44" height="36" rx="4" style="stroke:var(--accent)"/>
+    <path d="M344 80 h22 M344 100 h22" style="stroke:var(--accent)"/>
+    <path d="M20 300 H400" stroke-dasharray="4 4"/>
+    <path d="M170 60 v40 M160 60 h20" stroke-dasharray="3 3"/>
+    <text x="186" y="66" font-family="monospace" font-size="10" fill="currentColor" stroke="none">TOOL SWAP</text>
+  </svg>
+  <div class="wrap">
+    <span class="tag"><span class="dot"></span>Robotics Mechanical Design Engineer · Origin, Bengaluru</span>
+    <h1>I design the <em>mechanisms</em><br>robots work with.</h1>
+    <p class="lede">End-effectors, actuation and structures for autonomous robots — taken from concept CAD through FEA/CFD, DFMA and sheet-metal design to working prototypes.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">See projects →</a>
+      <a class="btn" href="Sankalp_Resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+      <a class="btn" href="https://www.linkedin.com/in/sankalpsankalp" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/sankalp1915" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>Published patent applications</span></div>
+      <div class="stat"><b>AIR 1</b><span>Autodesk Design Challenge 2024</span></div>
+      <div class="stat"><b>1</b><span>ASME IMECE paper</span></div>
+      <div class="stat"><b>8.6</b><span>CPI · B.Tech Mech, IIITDM Jabalpur</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work"><div class="wrap">
+  <div class="label">01 / Experience</div>
+  <h2>Where I've built things</h2>
+
+  <div class="job">
+    <div class="when">May 2025 — Present</div>
+    <div>
+      <h3><a href="https://www.linkedin.com/company/origin-autonomy/" target="_blank" rel="noopener" style="text-decoration:none">Origin</a><span class="pill">Full-time</span><span class="pill">PPO · Dec 2025</span></h3>
+      <div class="role">Robotics Mechanical Design Engineer (Jul 2026 – now) · Intern (May 2025 – Jul 2026)</div>
+      <ul>
+        <li>Designed swappable <b>sander and sprayer end-effector systems</b> in Onshape so one autonomous construction robot can switch between surface-finishing tasks.</li>
+        <li>Engineered a <b>pneumatic-cylinder bucket-swap mechanism</b> for fast tool and material changeover on the robot.</li>
+        <li>Re-designed structural and tooling parts for <b>sheet-metal fabrication using DFMA</b> to simplify manufacturing and assembly.</li>
+        <li>Earned a <b>Pre-Placement Offer (PPO) in Dec 2025</b>, during my 7th semester, for owning robot tooling sub-systems; joined full-time in Jul 2026.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Aug — Oct 2024</div>
+    <div>
+      <h3>Adelix Pvt. Ltd.</h3>
+      <div class="role">Design-for-Manufacturing Intern</div>
+      <ul>
+        <li>Designed a <b>universal docking system</b> for medium-class multirotor UAVs, including a gear- and drag-based cable uncoiling/recoiling mechanism with integrated motor drives.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Jun 2024</div>
+    <div>
+      <h3>Anusandhan National Research Foundation</h3>
+      <div class="role">Summer Research Intern · DST, Govt. of India</div>
+      <ul>
+        <li>Designed a tabletop fume-hood ventilation system for lab safety; optimised airflow with CFD and the structure with topology optimisation.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="label">02 / Projects</div>
+  <h2>Selected engineering projects</h2>
+  <div class="grid">
+
+    <article class="card">
+      <div class="viz"><svg viewBox="0 0 200 110">
+        <circle cx="40" cy="25" r="18"/><circle cx="160" cy="25" r="18"/><circle cx="40" cy="85" r="18"/><circle cx="160" cy="85" r="18"/>
+        <path d="M58 25 H142 M58 85 H142 M70 25 V85 M130 25 V85"/>
+        <rect class="a" x="82" y="40" width="36" height="30" rx="4"/>
+      </svg></div>
+      <h3>Autonomous Multirotor UAV</h3>
+      <div class="meta">May — Jul 2024 · 2 kg hybrid-H quadcopter</div>
+      <p>Designed and validated a 602 mm wheelbase quad with Pixhawk + Jetson Nano autonomy, then iterated the aerodynamic stack cover in CFD.</p>
+      <div class="kpis">
+        <span class="kpi">T/W <b>2.54:1</b></span><span class="kpi">Endurance <b>15 min</b></span>
+        <span class="kpi">Drag <b>−21%</b></span><span class="kpi">Drop FoS <b>2.36</b></span><span class="kpi">f₁ <b>252 Hz</b></span>
+      </div>
+      <div class="tools">SolidWorks · Ansys Fluent/Structural/Modal · LS-Dyna · ArduPilot · OpenCV</div>
+      <a class="more" href="https://drive.google.com/file/d/1pHhlk7Q49X-qJmD1n_nKoqJlHsoVafmE/view?usp=sharing" target="_blank" rel="noopener">Read report ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="viz"><svg viewBox="0 0 200 110">
+        <path d="M20 55 H180"/><path d="M100 20 L112 55 L100 90 L88 55 Z"/>
+        <path class="a" d="M60 55 L40 25 M140 55 L160 25"/>
+        <circle cx="60" cy="40" r="10"/><circle cx="140" cy="40" r="10"/><circle cx="60" cy="72" r="10"/><circle cx="140" cy="72" r="10"/>
+        <path d="M20 55 L10 45 M20 55 L10 65"/>
+      </svg></div>
+      <h3>eVTOL Quad-plane for Medical Logistics</h3>
+      <div class="meta">Mar — Dec 2024 · Patent published</div>
+      <p>Sized a hybrid VTOL for medical logistics and disaster surveillance, with a morphing wing that reconfigures in transition to cut cruise drag. Built a full-vehicle URDF from CAD for controller-in-the-loop simulation.</p>
+      <div class="kpis">
+        <span class="kpi">Payload <b>40 kg</b></span><span class="kpi">Endurance <b>50+ min</b></span><span class="kpi"><b>ROS 2 + Gazebo</b></span>
+      </div>
+      <div class="tools">Fusion 360 · Autodesk CFD · ROS 2 · Gazebo · URDF</div>
+      <a class="more" href="https://drive.google.com/file/d/1YbTYaFu0hA3IRrJqqlMGRoJghjB-BX9E/view?usp=sharing" target="_blank" rel="noopener">Read report ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="viz"><svg viewBox="0 0 200 110">
+        <rect x="30" y="10" width="140" height="12" rx="2"/><path d="M40 22 V95 M160 22 V95 M30 95 H170"/>
+        <rect class="a" x="88" y="22" width="24" height="44" rx="3"/><path class="a" d="M100 66 V78 M95 78 h10 l-5 8 z"/>
+        <path d="M70 88 h60" stroke-dasharray="3 3"/>
+      </svg></div>
+      <h3>Ceramic 3D Printer (B₄C)</h3>
+      <div class="meta">Feb — May 2024 · Patent + ASME paper</div>
+      <p>Retrofitted an Ender 3 with a syringe-pump extruder and closed-loop Arduino control with ultrasonic feedstock sensing; characterised 5 slurry compositions and validated nozzle flow in Fluent.</p>
+      <div class="kpis">
+        <span class="kpi">Nozzle <b>2 mm</b></span><span class="kpi">Slurries <b>5</b></span><span class="kpi">Drive <b>NEMA 23</b></span>
+      </div>
+      <div class="tools">SolidWorks · Ansys Fluent · Arduino / C++</div>
+      <a class="more" href="https://docs.google.com/presentation/d/1z_3ywmf0MkoSuZjKyoIkkNEwd7_-_9c5/edit?usp=sharing" target="_blank" rel="noopener">View deck ↗</a>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="recognition"><div class="wrap">
+  <div class="label">03 / Recognition</div>
+  <h2>Patents, research &amp; awards</h2>
+  <div class="two">
+    <div class="list">
+      <div class="item"><span class="rank">PATENT · IN 202521020630</span><b>An Extrusion System for 3D Printing and a Method of Operation Thereof</b><span>Published May 2025 · Design App. 450682-001</span></div>
+      <div class="item"><span class="rank">PATENT · IN 202521057108</span><b>An Electric (eVTOL) Aircraft for Medical Logistics and Disaster Surveillance</b><span>Published Jul 2025 · Design App. 462171-001</span></div>
+      <div class="item"><span class="rank">PAPER · ASME IMECE INDIA 2025</span><b><a href="https://asmedigitalcollection.asme.org/imece-india/proceedings-abstract/IMECE-INDIA2025/89138/1228650" target="_blank" rel="noopener" style="text-decoration:none">Evaluating Extrusion Dynamics in Ceramic 3D Printing Using FEA ↗</a></b><span>IMECE-INDIA2025-161187</span></div>
+    </div>
+    <div class="list">
+      <div class="item"><span class="rank">AIR 1</span><b>Autodesk Design Challenge 2024</b><span>IIT Kanpur</span></div>
+      <div class="item"><span class="rank">WINNER</span><b>Smart India Hackathon 2024</b><span>Hardware edition</span></div>
+      <div class="item"><span class="rank">BEST AUTONOMOUS UAV</span><b>Aerothon 2024</b><span>SAE India</span></div>
+      <div class="item"><span class="rank">AIR 2 · BEST CFD ANALYSIS</span><b>Drone Development Challenge 2024</b><span>SAE ISS</span></div>
+      <div class="item"><span class="rank">CERTIFICATIONS</span><b>CSWA · Top 5% Aircraft Design (NPTEL)</b><span>Dassault Systèmes · IIT Kanpur</span></div>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-size:14px;color:var(--muted)">
+    Full competition archive: <a href="https://drive.google.com/drive/folders/1C77cEQ5Smx0de4u_ITK2MonMBKC_yCBQ" target="_blank" rel="noopener">Google Drive ↗</a> ·
+    Portfolio files: <a href="https://drive.google.com/drive/folders/1eu13A7QGv-19AckrpIF-0xZNO-Gz-ByC" target="_blank" rel="noopener">Google Drive ↗</a> ·
+    <a href="https://drive.google.com/drive/folders/1biNvwh63qoSv6izkthM7i8C_RJbVQd86" target="_blank" rel="noopener">Patent filings ↗</a> ·
+    <a href="https://scholar.google.com/citations?user=i1FERxAAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+  </p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="label">04 / Toolkit</div>
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill"><h4>CAD &amp; Design</h4><div class="chips"><span class="chip">Onshape</span><span class="chip">SolidWorks (CSWA)</span><span class="chip">Fusion 360</span><span class="chip">Sheet metal</span><span class="chip">DFMA</span><span class="chip">Mechanism design</span><span class="chip">Drawings</span></div></div>
+    <div class="skill"><h4>Simulation</h4><div class="chips"><span class="chip">Ansys Structural</span><span class="chip">Ansys Modal</span><span class="chip">Ansys Fluent</span><span class="chip">LS-Dyna</span><span class="chip">Autodesk CFD</span><span class="chip">XFLR5</span><span class="chip">Topology opt.</span></div></div>
+    <div class="skill"><h4>Robotics &amp; Software</h4><div class="chips"><span class="chip">ROS 2</span><span class="chip">Gazebo</span><span class="chip">URDF</span><span class="chip">ArduPilot</span><span class="chip">Pixhawk</span><span class="chip">Jetson Nano</span><span class="chip">Python</span><span class="chip">C++</span><span class="chip">OpenCV</span><span class="chip">Arduino</span></div></div>
+    <div class="skill"><h4>Manufacturing</h4><div class="chips"><span class="chip">Additive (FDM)</span><span class="chip">Ceramic extrusion AM</span><span class="chip">Sheet-metal fab</span><span class="chip">Prototyping</span></div></div>
+  </div>
+</div></section>
+
+<section class="contact"><div class="wrap">
+  <div class="label">05 / Contact</div>
+  <h2>Let's build something that moves.</h2>
+  <p>Open to robotics, mechatronics and hardware product roles. Best reached by email.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:sankalp.iiitdmj@gmail.com">sankalp.iiitdmj@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/sankalpsankalp" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/sankalp1915" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="Sankalp_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© <span id="y"></span> Sankalp</span><span>Bengaluru, India</span></div></footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
